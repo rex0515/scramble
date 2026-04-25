@@ -1,0 +1,14 @@
+name: CompileLinux
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: debian-server
+    steps:
+      - uses: actions/checkout@v4
+      - name: Draft a release and and add linux binary
+        run: ./draft_release
