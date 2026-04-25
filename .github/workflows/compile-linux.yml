@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: debian-server
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
       - name: Draft a release and and add linux binary
