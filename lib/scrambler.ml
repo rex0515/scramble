@@ -1,8 +1,12 @@
-let scramble_file ?(sort = false) ?(max_bytes = 4096) in_fname out_fname =
+let scramble_file ?(sort = false) ?(custom_seed: int option = None) ?(max_bytes = 4096) in_fname out_fname =
   let scramble_array = 
     if sort then (Array.sort Stdlib.compare)
     else (
-      Random.self_init ();
+      (match custom_seed with
+        | Some v -> Random.init v
+        | None -> Random.self_init ()
+      );
+
       fun arr -> 
       (Array.shuffle ~rand:Random.int) arr
     )
