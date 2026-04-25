@@ -11,4 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Draft a release and and add linux binary
-        run: ./draft_release
+        run: /home/opam/draft_release
