@@ -23,6 +23,7 @@ let () =
   Arg.parse speclist anon_fun usage_msg;
   if !input_file = "" || !output_file = "" then
     Arg.usage speclist usage_msg
-  else
+  else (
     Scramble.Scrambler.scramble_file ~sort:!sort ~custom_seed:(if !is_custom_seed then (Some !seed) else None) !input_file !output_file;
     Printf.printf "Done!\n%!";
+  )
